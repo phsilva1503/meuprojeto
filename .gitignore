@@ -1,0 +1,36 @@
+# Ambiente virtual
+venv/
+ENV/
+env/
+
+# Arquivos Python compilados
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Instâncias do Flask
+instance/
+*.db
+*.sqlite3
+
+# Configurações locais / credenciais
+.env
+*.env
+*.ini
+*.cfg
+
+# Logs e caches
+*.log
+*.cache
+*.bak
+
+# IDEs e editores
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
