@@ -1,5 +1,4 @@
 from flask import Flask
-#from models import db, Users, Endereco
 from models import *
 from flask_migrate import Migrate
 from routes import routes  # importa a função de rotas
