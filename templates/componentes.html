@@ -8,49 +8,39 @@
 <body class="bg-gray-100 font-sans">
 
   <div class="container mx-auto mt-8 p-4">
-  <a href="{{ url_for('index') }}" 
-     class="inline-block mb-4 bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">
-     Voltar
-  </a>
-  
-  <!-- Navbar -->
-  <nav class="bg-blue-600 shadow-lg p-4 flex justify-between">
-    <h1 class="text-white font-bold text-xl">Componentes da Produção</h1>
-    <a href="{{ url_for('index') }}" class="text-white hover:underline">Voltar</a>
-  </nav>
+    <a href="{{ url_for('index') }}" 
+       class="inline-block mb-4 bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">
+       Voltar
+    </a>
 
-  <div class="container mx-auto mt-8 p-4 bg-white shadow-md rounded-lg">
-    <h2 class="text-lg font-semibold mb-4 text-blue-600">
-      Produção {{ producao.id_producao }} (ID interno: {{ producao.id }})
-    </h2>
-    <p class="mb-4">Data: <strong>{{ producao.data }}</strong> | 
-       Densidade: <strong>{{ producao.densidade }}</strong></p>
+    <div class="bg-white shadow-md rounded-lg p-6">
+      <h2 class="text-lg font-semibold mb-4 text-blue-600">
+        Produção {{ producao.id_producao }} (ID: {{ producao.id }})
+      </h2>
+      <p class="mb-4">
+        Data: <strong>{{ producao.data }}</strong> | 
+        Densidade: <strong>{{ producao.densidade }}</strong>
+      </p>
 
-    {% if producao.componentes %}
-      <table class="min-w-full border border-gray-200 rounded-lg">
-        <thead class="bg-gray-100">
-          <tr>
-            <th class="px-4 py-2 text-left">ID Componente</th>
-            <th class="px-4 py-2 text-left">Comp. A</th>
-            <th class="px-4 py-2 text-left">Comp. B</th>
-            <th class="px-4 py-2 text-left">Comp. C</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for c in producao.componentes %}
-          <tr class="border-t">
-            <td class="px-4 py-2">{{ c.id }}</td>
-            <td class="px-4 py-2">{{ c.comp_a }}</td>
-            <td class="px-4 py-2">{{ c.comp_b }}</td>
-            <td class="px-4 py-2">{{ c.comp_c }}</td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    {% else %}
-      <p>Nenhum componente cadastrado para esta produção.</p>
-    {% endif %}
+      <div class="overflow-x-auto">
+        <table class="min-w-full border border-gray-200 rounded-lg">
+          <thead class="bg-gray-100">
+            <tr>
+              <th class="px-4 py-2 text-left">Produto</th>
+              <th class="px-4 py-2 text-left">Quantidade Usada</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for componente in componentes %}
+              <tr class="border-t">
+                <td class="px-4 py-2">{{ componente.produto.nome }}</td>
+                <td class="px-4 py-2">{{ componente.quantidade_usada }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
-
 </body>
 </html>
