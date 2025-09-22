@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Produtos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white shadow-lg rounded-xl p-8 w-full max-w-md">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Cadastro de Produtos</h2>
+
+        <!-- Botão para ir à tela de estoque -->
+        <div class="mb-6 text-center">
+            <a href="{{ url_for('estoque') }}" 
+               class="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg transition">
+               Ir para Estoque
+            </a>
+        </div>
+
+        <form method="post" class="space-y-4">
+            <input 
+                type="text" 
+                name="nome" 
+                placeholder="Nome do produto" 
+                required 
+                class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+            >
+            <button 
+                type="submit" 
+                class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
+            >
+                Salvar
+            </button>
+        </form>
+
+        <h3 class="text-lg font-semibold text-gray-700 mt-8">Produtos cadastrados</h3>
+        <ul class="mt-3 space-y-2">
+            {% for produto in produtos %}
+                <li class="px-4 py-2 bg-gray-50 border rounded-lg">{{ produto.nome }}</li>
+            {% else %}
+                <li class="text-gray-500 italic">Nenhum produto cadastrado ainda.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

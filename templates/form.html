@@ -7,8 +7,13 @@
 </head>
 <body class="bg-gray-100 font-sans">
 
-  <nav class="bg-blue-600 shadow-lg p-4">
+  <!-- Navbar -->
+  <nav class="bg-blue-600 shadow-lg p-4 flex justify-between items-center">
     <h1 class="text-white font-bold text-xl">Controle de Produção</h1>
+    <a href="{{ url_for('cadastro_produto') }}" 
+       class="bg-white text-blue-600 font-semibold px-4 py-2 rounded shadow hover:bg-gray-100">
+      + Cadastrar Produto
+    </a>
   </nav>
 
   <div class="container mx-auto mt-8 p-4">
